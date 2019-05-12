@@ -1,49 +1,86 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            <h3 class="text-center my-4">Search for Weather: {{this.weatherData?.location.name}}, {{this.weatherData?.location.country}}</h3>
-            <form [formGroup]="weatherSearchForm" (ngSubmit)="sendToAPIXU(weatherSearchForm.value)">
-                <div class="form-group">
-                    <input class="form-control" type="text" id="weatherLocation" aria-describedby="weatherLocation" placeholder="Please input a Location" formControlName="location" />
-                </div>
-                <div>
-                    <button type="submit" class="btn btn-info">
-      Search for the weather
-    </button>
-                </div>
-            </form>
 
-        </div>
-        <div class="col-md-6">
-            <h3 class="text-center my-4"> Weather details:</h3>
-            <ul>
-                <li>
-                    Current weather conditions: {{this.weatherData?.current.condition.text}}
-                </li>
-                <li>
-                    Temperature in Degrees Celsius: {{this.weatherData?.current.temp_c}}
-                </li>
-                <li>
-                    Temperature in Degrees Farenheit: {{this.weatherData?.current.temp_f}}
-                </li>
-                <li>
-                    Feels like in Degrees Celsius: {{this.weatherData?.current.feelslike_c}}
-                </li>
-                <li>
-                    Feels like in Degrees Farenheit: {{this.weatherData?.current.feelslike_f}}
-                </li>
-                <li>
-                    Location Searched: {{this.weatherData?.location.name}}, {{this.weatherData?.location.country}}
-                </li>
-                <li>
-                    Local time : {{this.weatherData?.current.last_updated }}
-
-                </li>
-                <li>
-                    <img [src]="this.weatherData?.current.condition.icon" title="{{ weatherData?.current.condition.text}}" />
-
-                </li>
-            </ul>
-        </div>
     </div>
+</div>
+<div>
+    <h3 class='bg_color'>Search for Weather: {{this.weatherData?.location.name}} {{this.weatherData?.location.country}}</h3>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Weather details </th>
+                <th scope="col"> Result</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td> Location Searched </td>
+                <td> {{this.weatherData?.location.country}}</td>
+                <td>{{this.weatherData?.location.name}}</td>
+
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Current weather conditions</td>
+                <td>{{this.weatherData?.current.condition.text}}</td>
+                <td><img [src]="this.weatherData?.current.condition.icon" title="{{ weatherData?.current.condition.text}}" />
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td> Temperature in Degrees Celsius</td>
+                <td>Celsius</td>
+                <td>{{this.weatherData?.current.temp_c}} Celsius</td>
+            </tr>
+
+
+
+            <tr>
+                <th scope="row">4</th>
+                <td> Temperature in Degrees Farenheit</td>
+                <td>Farenheit</td>
+                <td>{{this.weatherData?.current.temp_f}} Farenheit</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td> Feels like in Degrees Celsius</td>
+                <td>Celsius</td>
+                <td>{{this.weatherData?.current.feelslike_c}} Celsius</td>
+            </tr>
+
+            <tr>
+                <th scope="row">6</th>
+                <td> Feels like in Degrees Farenheit </td>
+                <td>Farenheit</td>
+                <td>{{this.weatherData?.current.feelslike_f}} Farenheit</td>
+            </tr>
+
+            <tr>
+                <th scope="row">7</th>
+                <td> Local time
+                </td>
+                <td> {{this.weatherData?.current.last_updated }}</td>
+                <td></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
+<div>
+    <form [formGroup]="weatherSearchForm" (ngSubmit)="sendToAPIXU(weatherSearchForm.value)">
+        <div class="form-group">
+            <input class="form-control" type="text" id="weatherLocation" aria-describedby="weatherLocation" placeholder="Please input a Location" formControlName="location" />
+        </div>
+        <div>
+            <button type="submit" class="btn btn-info">
+Search for the weather
+</button>
+        </div>
+    </form>
+
 </div>
