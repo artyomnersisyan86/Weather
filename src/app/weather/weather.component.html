@@ -35,6 +35,14 @@
                 <li>
                     Location Searched: {{this.weatherData?.location.name}}, {{this.weatherData?.location.country}}
                 </li>
+                <li>
+                    Local time : {{this.weatherData?.current.last_updated }}
+
+                </li>
+                <li>
+                    <img [src]="this.weatherData?.current.condition.icon" title="{{ weatherData?.current.condition.text}}" />
+
+                </li>
             </ul>
         </div>
     </div>
