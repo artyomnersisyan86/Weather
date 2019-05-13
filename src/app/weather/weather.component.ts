@@ -11,6 +11,8 @@ export class WeatherComponent implements OnInit {
   public weatherSearchForm: FormGroup;
   public weatherData: any;//to which you'll assign the retrieved JSON data from the API
   constructor(private formBuilder: FormBuilder, private apixuService: ApixuService) { }
+  //variable which does not show the div
+  isloaded: boolean =false;
 
   ngOnInit() {
     this.weatherSearchForm = this.formBuilder.group({
@@ -25,6 +27,7 @@ export class WeatherComponent implements OnInit {
       console.log(this.weatherData);
       this.weatherSearchForm.reset();
       });
+      this.isloaded =true;
   }
 
 }
