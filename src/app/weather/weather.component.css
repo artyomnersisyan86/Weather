@@ -8,6 +8,7 @@
 .form-control {
     border: 2px solid rgb(126, 126, 189);
     width: 20%;
+    margin: 5px;
 }
 
 p {
